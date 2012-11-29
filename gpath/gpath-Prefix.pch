@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'gpath' target in the 'gpath' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
