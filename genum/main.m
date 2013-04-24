@@ -17,7 +17,6 @@ int main(int argc, const char * argv[])
     {
         NSString *input_file;
         NSString *source_point;
-        BOOL json = NO;
         BOOL reverse = NO;
         
         for (int i = 1; i < argc; i++)
@@ -34,14 +33,6 @@ int main(int argc, const char * argv[])
                     else if (!strcmp(argv[i], "--help"))
                     {
                         help_full(argv[0], YES, EXIT_SUCCESS);
-                    }
-                    else if (!strcmp(argv[i], "--json"))
-                    {
-                        json = YES;
-                    }
-                    else if (!strcmp(argv[i], "--plist"))
-                    {
-                        json = NO;
                     }
                     else if (!strcmp(argv[i], "--reverse"))
                     {
@@ -70,12 +61,6 @@ int main(int argc, const char * argv[])
                             case 'h':
                                 help_full(argv[0], YES, EXIT_SUCCESS);
                                 break;
-                            case 'j':
-                                json = YES;
-                                break;
-                            case 'p':
-                                json = NO;
-                                break;
                             case 'r':
                                 reverse = YES;
                                 break;
@@ -102,19 +87,7 @@ int main(int argc, const char * argv[])
             exit(EXIT_FAILURE);
         }
         
-        GKGraph *input_graph;
-        NSDictionary *input_plist;
-        
-        if (json)
-        {
-            input_plist = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[input_file stringByExpandingTildeInPath]] options:0 error:NULL];
-        }
-        else
-        {
-            input_plist = [NSDictionary dictionaryWithContentsOfFile:[input_file stringByExpandingTildeInPath]];
-        }
-        
-        input_graph = [[GKGraph alloc] initFromArchive:input_plist];
+        GKGraph *input_graph = [NSKeyedUnarchiver unarchiveObjectWithFile:[input_file stringByExpandingTildeInPath]];
         
         GKPoint *from = [input_graph pointWithName:source_point];
         

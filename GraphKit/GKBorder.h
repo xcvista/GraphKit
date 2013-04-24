@@ -11,13 +11,13 @@
 @class GKGraph;
 @class GKPoint;
 
-@interface GKBorder : NSObject <NSArchive>
+@interface GKBorder : NSObject <NSCoding>
 
-@property (nonatomic, strong) GKPoint *from;
-@property (nonatomic, strong) GKPoint *to;
-@property (nonatomic, strong) GKGraph *graph;
-@property (nonatomic) GKPower power;
-@property (nonatomic, strong) id tag;
+@property GKPoint *from;
+@property GKPoint *to;
+@property GKGraph *graph;
+@property GKPower power;
+@property id tag;
 
 - (id)initFormPoint:(GKPoint *)from toPoint:(GKPoint *)to withPower:(GKPower)power inGraph:(GKGraph *)graph;
 - (id)initFromArchive:(NSDictionary *)archive inGraph:(GKGraph *)graph;

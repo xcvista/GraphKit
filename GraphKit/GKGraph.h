@@ -11,11 +11,11 @@
 @class GKBorder;
 @class GKPoint;
 
-@interface GKGraph : NSObject <NSArchive>
+@interface GKGraph : NSObject <NSCoding>
 
-@property (nonatomic, strong) NSSet *borders;
-@property (nonatomic, strong) NSSet *points;
-@property (nonatomic, strong) id tag;
+@property NSSet *borders;
+@property NSSet *points;
+@property id tag;
 
 - (void)connectPoint:(GKPoint *)point1 withPoint:(GKPoint *)point2;
 - (void)connectPoint:(GKPoint *)point1 withPoint:(GKPoint *)point2 withPower:(GKPower)power;

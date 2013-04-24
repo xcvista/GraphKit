@@ -22,7 +22,6 @@ int main(int argc, const char **argv)
         NSArray *input_lines;
         
         BOOL verbose = NO;
-        BOOL json = NO;
         
         GKGraph *output_object;
         
@@ -47,14 +46,6 @@ int main(int argc, const char **argv)
                     else if (!strcmp(argv[i], "--help"))
                     {
                         help_full(argv[0], YES, EXIT_SUCCESS);
-                    }
-                    else if (!strcmp(argv[i], "--json"))
-                    {
-                        json = YES;
-                    }
-                    else if (!strcmp(argv[i], "--plist"))
-                    {
-                        json = NO;
                     }
                     else if (!strcmp(argv[i], "--version"))
                     {
@@ -82,12 +73,6 @@ int main(int argc, const char **argv)
                             case 'h':
                                 help_full(argv[0], YES, EXIT_SUCCESS);
                                 break;
-                            case 'j':
-                                json = YES;
-                                break;
-                            case 'p':
-                                json = NO;
-                                break;
                             case 'v':
                                 verbose = YES;
                                 break;
@@ -105,7 +90,7 @@ int main(int argc, const char **argv)
             }
             else
             {
-                input_file = [NSString stringWithCString:argv[i] encoding:[NSString defaultCStringEncoding]];
+                input_file = [NSString stringWithCString:argv[i] encoding:NSUTF8StringEncoding];
             }
         }
         
@@ -121,7 +106,7 @@ int main(int argc, const char **argv)
         
         //Read the input
         input_data = [NSData dataWithContentsOfFile:input_file];
-        input_content = [[NSString alloc] initWithData:input_data encoding:[NSString defaultCStringEncoding]];
+        input_content = [[NSString alloc] initWithData:input_data encoding:NSUTF8StringEncoding];
         
         //Prepare for parsing
         input_lines = [input_content componentsSeparatedByString:@"\n"];
@@ -225,14 +210,7 @@ int main(int argc, const char **argv)
         }
         
         //Write the archive
-        if (json)
-        {
-            [[NSJSONSerialization dataWithJSONObject:output_object.archive options:NSJSONWritingPrettyPrinted error:NULL] writeToFile:output_file atomically:YES];
-        }
-        else
-        {
-            [[NSPropertyListSerialization dataFromPropertyList:output_object.archive format:NSPropertyListXMLFormat_v1_0 errorDescription:NULL] writeToFile:output_file atomically:YES];
-        }
+        [NSKeyedArchiver archiveRootObject:output_object toFile:output_file];
         
         exit(EXIT_SUCCESS);
     }

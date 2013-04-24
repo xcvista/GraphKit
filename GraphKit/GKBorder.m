@@ -31,6 +31,20 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        NSArray *keys = @[@"from", @"to", @"power"];
+        
+        for (NSString *key in keys)
+        {
+            [self setValue:[aDecoder decodeObjectForKey:key] forKey:key];
+        }
+    }
+    return self;
+}
+
 - (BOOL)isEqual:(id)object
 {
     if (![object isKindOfClass:[self class]])
@@ -38,26 +52,19 @@
     return [[object from] isEqual:self.from] && [[object to] isEqual:self.to] && [object power] == self.power;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    NSArray *keys = @[@"from", @"to", @"power"];
+    
+    for (NSString *key in keys)
+    {
+        [aCoder encodeObject:[self valueForKey:key] forKey:key];
+    }
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ -%lf-> %@%s", self.from, self.power, self.to, self.tag ? " *" : ""];
-}
-
-- (NSDictionary *)archive
-{
-    return [NSDictionary dictionaryWithObjectsAndKeys:self.from.name, @"from", self.to.name, @"to", [NSNumber numberWithDouble:self.power], @"power", nil];
-}
-
-- (id)initFromArchive:(NSDictionary *)archive inGraph:(GKGraph *)graph
-{
-    if (self = [self init])
-    {
-        self.graph = graph;
-        self.power = [[archive objectForKey:@"power"] doubleValue];
-        self.from = [graph pointWithName:[archive objectForKey:@"from"]];
-        self.to = [graph pointWithName:[archive objectForKey:@"to"]];
-    }
-    return self;
 }
 
 - (id)initFromArchive:(NSDictionary *)archive

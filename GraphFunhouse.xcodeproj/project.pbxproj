@@ -14,19 +14,13 @@
 		1D00E3CA15710DC500FFE15F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D00E3C915710DC500FFE15F /* Foundation.framework */; };
 		1D00E3CD15710DC500FFE15F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D00E3CC15710DC500FFE15F /* main.m */; };
 		1D00E3D515710DD700FFE15F /* GraphKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D99681D155915EA000F29D1 /* GraphKit.framework */; };
-		1D2F65C216633B6300A82551 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65C116633B6300A82551 /* Makefile */; };
-		1D2F65C4166345C500A82551 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65C3166345C500A82551 /* Makefile */; };
 		1D2F65C51663470D00A82551 /* GraphKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D99682C155915EA000F29D1 /* GraphKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D2F65C61663476000A82551 /* GKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D00E3C21570FE5100FFE15F /* GKCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D2F65C71663476000A82551 /* NSArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D4DACB31571523D00137330 /* NSArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D2F65CA1663C90900A82551 /* help.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65C91663C90900A82551 /* help.m */; };
-		1D2F65CC1663CAE600A82551 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65CB1663CAE600A82551 /* Makefile */; };
-		1D2F65CE1663CB9000A82551 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65CD1663CB9000A82551 /* Makefile */; };
 		1D2F65D6166501E300A82551 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D00E3C915710DC500FFE15F /* Foundation.framework */; };
 		1D2F65D9166501E400A82551 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65D8166501E400A82551 /* main.m */; };
 		1D2F65E11665020C00A82551 /* GraphKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D99681D155915EA000F29D1 /* GraphKit.framework */; };
 		1D2F65E51665323200A82551 /* help.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65E31665323200A82551 /* help.m */; };
-		1D2F65E61665323200A82551 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65E41665323200A82551 /* Makefile */; };
 		1D2F65E9166536FC00A82551 /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65E8166536FC00A82551 /* NSMutableArray+Stack.m */; };
 		1D2F65EC1665378E00A82551 /* enum.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F65EB1665378E00A82551 /* enum.m */; };
 		1D996820155915EA000F29D1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D99681F155915EA000F29D1 /* Cocoa.framework */; };
@@ -92,23 +86,17 @@
 		1D00E3C915710DC500FFE15F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D00E3CC15710DC500FFE15F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D00E3CF15710DC500FFE15F /* gdlc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gdlc-Prefix.pch"; sourceTree = "<group>"; };
-		1D2F65C116633B6300A82551 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; usesTabs = 1; };
-		1D2F65C3166345C500A82551 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; usesTabs = 1; };
 		1D2F65C81663C90900A82551 /* help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = help.h; sourceTree = "<group>"; };
 		1D2F65C91663C90900A82551 /* help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = help.m; sourceTree = "<group>"; };
-		1D2F65CB1663CAE600A82551 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		1D2F65CD1663CB9000A82551 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		1D2F65D5166501E300A82551 /* genum */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = genum; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2F65D8166501E400A82551 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D2F65DB166501E400A82551 /* genum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "genum-Prefix.pch"; sourceTree = "<group>"; };
 		1D2F65E21665323200A82551 /* help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = help.h; sourceTree = "<group>"; };
 		1D2F65E31665323200A82551 /* help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = help.m; sourceTree = "<group>"; };
-		1D2F65E41665323200A82551 /* Makefile */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; fileEncoding = 4; path = Makefile; sourceTree = "<group>"; usesTabs = 1; };
 		1D2F65E7166536FC00A82551 /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
 		1D2F65E8166536FC00A82551 /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
 		1D2F65EA1665378E00A82551 /* enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enum.h; sourceTree = "<group>"; };
 		1D2F65EB1665378E00A82551 /* enum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = enum.m; sourceTree = "<group>"; };
-		1D4DACB31571523D00137330 /* NSArchive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSArchive.h; sourceTree = "<group>"; };
 		1D4DACB815720CBC00137330 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		1D99681D155915EA000F29D1 /* GraphKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D99681F155915EA000F29D1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -190,7 +178,6 @@
 				1DC5695C1572738100E8F182 /* help.m */,
 				1DC5695B1572736F00E8F182 /* help.h */,
 				1D00E3CE15710DC500FFE15F /* Supporting Files */,
-				1D2F65C3166345C500A82551 /* Makefile */,
 			);
 			path = gdlc;
 			sourceTree = "<group>";
@@ -213,7 +200,6 @@
 				1D2F65E8166536FC00A82551 /* NSMutableArray+Stack.m */,
 				1D2F65EA1665378E00A82551 /* enum.h */,
 				1D2F65EB1665378E00A82551 /* enum.m */,
-				1D2F65E41665323200A82551 /* Makefile */,
 				1D2F65DA166501E400A82551 /* Supporting Files */,
 			);
 			path = genum;
@@ -282,7 +268,6 @@
 				1D00E3BB1570FCBC00FFE15F /* GKPoint.m */,
 				1D00E3BE1570FD4E00FFE15F /* GKGraph.h */,
 				1D00E3BF1570FD4E00FFE15F /* GKGraph.m */,
-				1D2F65C116633B6300A82551 /* Makefile */,
 			);
 			path = GraphKit;
 			sourceTree = "<group>";
@@ -292,7 +277,6 @@
 			children = (
 				1D99682C155915EA000F29D1 /* GraphKit.h */,
 				1D00E3C21570FE5100FFE15F /* GKCommon.h */,
-				1D4DACB31571523D00137330 /* NSArchive.h */,
 				1D996827155915EA000F29D1 /* GraphKit-Info.plist */,
 				1D996828155915EA000F29D1 /* InfoPlist.strings */,
 				1D99682B155915EA000F29D1 /* GraphKit-Prefix.pch */,
@@ -306,7 +290,6 @@
 				1DC569511572707400E8F182 /* main.m */,
 				1D2F65C81663C90900A82551 /* help.h */,
 				1D2F65C91663C90900A82551 /* help.m */,
-				1D2F65CB1663CAE600A82551 /* Makefile */,
 				1DC569531572707400E8F182 /* Supporting Files */,
 			);
 			path = deglist;
@@ -327,7 +310,6 @@
 				1DF240E615731AF6002E62FE /* main.m */,
 				1DF240F015731B2A002E62FE /* help.h */,
 				1DF240F115731B2A002E62FE /* help.m */,
-				1D2F65CD1663CB9000A82551 /* Makefile */,
 				1DF240E815731AF6002E62FE /* Supporting Files */,
 			);
 			path = gpath;
@@ -353,7 +335,6 @@
 				1D00E3C01570FD4E00FFE15F /* GKGraph.h in Headers */,
 				1D2F65C51663470D00A82551 /* GraphKit.h in Headers */,
 				1D2F65C61663476000A82551 /* GKCommon.h in Headers */,
-				1D2F65C71663476000A82551 /* NSArchive.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +475,6 @@
 			files = (
 				1D00E3CD15710DC500FFE15F /* main.m in Sources */,
 				1DC5695D1572738100E8F182 /* help.m in Sources */,
-				1D2F65C4166345C500A82551 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +484,6 @@
 			files = (
 				1D2F65D9166501E400A82551 /* main.m in Sources */,
 				1D2F65E51665323200A82551 /* help.m in Sources */,
-				1D2F65E61665323200A82551 /* Makefile in Sources */,
 				1D2F65E9166536FC00A82551 /* NSMutableArray+Stack.m in Sources */,
 				1D2F65EC1665378E00A82551 /* enum.m in Sources */,
 			);
@@ -517,7 +496,6 @@
 				1D99683515591610000F29D1 /* GKBorder.m in Sources */,
 				1D00E3BD1570FCBC00FFE15F /* GKPoint.m in Sources */,
 				1D00E3C11570FD4E00FFE15F /* GKGraph.m in Sources */,
-				1D2F65C216633B6300A82551 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +505,6 @@
 			files = (
 				1DC569521572707400E8F182 /* main.m in Sources */,
 				1D2F65CA1663C90900A82551 /* help.m in Sources */,
-				1D2F65CC1663CAE600A82551 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +514,6 @@
 			files = (
 				1DF240E715731AF6002E62FE /* main.m in Sources */,
 				1DF240F215731B2A002E62FE /* help.m in Sources */,
-				1D2F65CE1663CB9000A82551 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +715,7 @@
 				1D2F65E0166501E400A82551 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D996805155915C0000F29D1 /* Build configuration list for PBXProject "GraphFunhouse" */ = {
 			isa = XCConfigurationList;

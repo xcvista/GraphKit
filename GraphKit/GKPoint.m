@@ -27,6 +27,20 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+}
+
 - (BOOL)isEqual:(id)object
 {
     if (![object isKindOfClass:[self class]])

@@ -8,6 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-#import <GraphKit/NSArchive.h>
-
 typedef double GKPower;

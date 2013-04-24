@@ -11,11 +11,11 @@
 @class GKGraph;
 @class GKBorder;
 
-@interface GKPoint : NSObject
+@interface GKPoint : NSObject <NSCoding>
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) GKGraph *graph;
-@property (nonatomic, strong) id tag;
+@property NSString *name;
+@property GKGraph *graph;
+@property id tag;
 
 - (id)initWithName:(NSString *)name inGraph:(GKGraph *)graph;
 - (NSArray *)incomingBorders;

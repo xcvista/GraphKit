@@ -15,15 +15,9 @@ int main(int argc, const char **argv)
     @autoreleasepool
     {
         NSString *input_file;
-        NSDictionary *input_plist;
-        BOOL json;
         
         for (int i = 1; i < argc; i++) {
-            if (!strncmp(argv[i], "-j", 2) || !strcmp(argv[i], "--json"))
-            {
-                json = YES;
-            }
-            else if (!strncmp(argv[i], "-V", 2) || !strcmp(argv[i], "--version"))
+            if (!strncmp(argv[i], "-V", 2) || !strcmp(argv[i], "--version"))
             {
                 version(argv[0], YES, EXIT_SUCCESS);
             }
@@ -33,7 +27,7 @@ int main(int argc, const char **argv)
             }
             else
             {
-                input_file = [NSString stringWithCString:argv[i] encoding:[NSString defaultCStringEncoding]];
+                input_file = [NSString stringWithCString:argv[i] encoding:NSUTF8StringEncoding];
             }
         }
         
@@ -42,16 +36,7 @@ int main(int argc, const char **argv)
             help(argv[0], YES, EXIT_FAILURE);
         }
         
-        if (json)
-        {
-            input_plist = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[input_file stringByExpandingTildeInPath]] options:0 error:NULL];
-        }
-        else
-        {
-            input_plist = [NSDictionary dictionaryWithContentsOfFile:[input_file stringByExpandingTildeInPath]];
-        }
-        
-        GKGraph *input_graph = [[GKGraph alloc] initFromArchive:input_plist];
+        GKGraph *input_graph = [NSKeyedUnarchiver unarchiveObjectWithFile:[input_file stringByExpandingTildeInPath]];
         
         for (GKPoint *point in input_graph.points)
         {
@@ -62,7 +47,7 @@ int main(int argc, const char **argv)
                 inp += b.power;
             for (GKBorder *b in oub)
                 oup += b.power;
-            printf("%4s in:%3lu% 7.2lf out:%3lu% 7.2lf\n", [point.name cStringUsingEncoding:[NSString defaultCStringEncoding]], inb.count, inp, oub.count, oup);
+            printf("%4s in:%3lu, % 7.2lf; out:%3lu, % 7.2lf.\n", [point.name cStringUsingEncoding:[NSString defaultCStringEncoding]], inb.count, inp, oub.count, oup);
         }
         exit(EXIT_SUCCESS);
     }

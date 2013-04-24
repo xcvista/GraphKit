@@ -39,17 +39,24 @@ static BOOL verbose_path;
 
 - (NSSet *)points
 {
-    return [NSSet setWithArray:self.pointsInternal.allValues];
+    @synchronized (_pointsInternal)
+    {
+        return [NSSet setWithArray:self.pointsInternal.allValues];
+    }
 }
 
 - (void)setPoints:(NSSet *)points
 {
-    NSMutableDictionary *destdict = [NSMutableDictionary dictionaryWithCapacity:points.count];
-    for (GKPoint *obj in points)
+    @synchronized (_pointsInternal)
     {
-        [destdict setValue:obj forKey:obj.name];
+        NSMutableDictionary *destdict = [NSMutableDictionary dictionaryWithCapacity:points.count];
+        for (GKPoint *obj in points)
+        {
+            obj.graph = self;
+            [destdict setValue:obj forKey:obj.name];
+        }
+        self.pointsInternal = destdict;
     }
-    self.pointsInternal = destdict;
 }
 
 - (GKPoint *)pointWithName:(NSString *)name
@@ -88,34 +95,28 @@ static BOOL verbose_path;
     
 }
 
-- (id)initFromArchive:(NSDictionary *)archive
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    if (self = [self init])
+    if (self = [super init])
     {
-        NSArray *points = [archive objectForKey:@"points"];
-        NSArray *borders = [archive objectForKey:@"borders"];
-        NSMutableSet *borders_set = [NSMutableSet setWithCapacity:borders.count];
-        for (NSString *name in points)
-            [self pointWithName:name];
-        for (NSDictionary *border in borders)
-        {
-            GKBorder *border_obj = [[GKBorder alloc] initFromArchive:border inGraph:self];
-            [borders_set addObject:border_obj];
-        }
-        self.borders = borders_set.copy;
+        NSArray *borders = [aDecoder decodeObjectForKey:@"borders"];
+        NSArray *points = [aDecoder decodeObjectForKey:@"points"];
+        
+        for (NSArray *arr in @[borders, points])
+            for (id obj in arr)
+                if ([obj respondsToSelector:@selector(setGraph:)])
+                    [obj setGraph:self];
+        
+        self.borders = [NSSet setWithArray:borders];
+        self.points = [NSSet setWithArray:points];
     }
     return self;
 }
 
-- (NSDictionary *)archive
+- (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    NSMutableArray *points = [NSMutableArray arrayWithCapacity:self.points.count];
-    NSMutableArray *borders = [NSMutableArray arrayWithCapacity:self.borders.count];
-    for (GKPoint *point in self.points)
-        [points addObject:point.name];
-    for (GKBorder *border in self.borders)
-        [borders addObject:border.archive];
-    return [NSDictionary dictionaryWithObjectsAndKeys:points.copy, @"points", borders.copy, @"borders", nil];
+    [aCoder encodeObject:[self.borders allObjects] forKey:@"borders"];
+    [aCoder encodeObject:[self.points allObjects] forKey:@"points"];
 }
 
 - (NSArray *)bordersToPoint:(GKPoint *)point
